@@ -2,8 +2,69 @@
 layout: page
 title: C#
 pre-heading: Standards for
-heading: C# 
+heading: C#
 menu-label: C#
 permalink: /csharp/
 weight: 1
 ---
+
+<div class="l-container columns" id="naming">
+    <div class="l-col">
+        <h2>Naming</h2>
+        <p>The following should be upper camel case (UpperCamelCase):</p>
+        <ul>
+            <li>Types and namespaces</li>
+            <li>Methods, properties and events</li>
+            <li>Constants</li>
+            <li>Enum members</li>
+            <li>Fields, when not private</li>
+        </ul>
+        <p>The following should be lower camel case (lowerCamelCase):</p>
+        <ul>
+            <li>Local variables</li>
+            <li>Local constants</li>
+            <li>Parameters</li>
+        </ul>
+        <p>The following should be underscore lower camel case (_lowerCamelCase):</p>
+        <ul>
+            <li>Fields, when private</li>
+        </ul>
+        <p>Interfaces should be upper camel case prefix with I (IUpperCamelCase).</p>
+        <p>Generic types parameters should be upper camel case prefix with T (TUpperCamelCase).</p>
+    </div>
+    <div class="l-col">
+        {% highlight c# %}
+namespace CreativeJar.Standards
+{
+    public interface INaming
+    {}
+
+    public class Naming<TName> : INaming
+    {
+        private string _myPrivateField;
+
+        public string MyPublicField;
+
+        public Naming()
+        {
+            //...
+        }
+
+        public string MyProperty { get; set; }
+
+        public TName MyMethod()
+        {
+            return default(TName);
+        }
+
+        public enum MyEnum
+        {
+            ItemOne,
+            ItemTwo,
+            ItemThree
+        }
+    }
+}
+        {% endhighlight %}
+    </div>
+</div>

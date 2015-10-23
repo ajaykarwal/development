@@ -33,15 +33,15 @@ weight: 1
     </div>
     <div class="l-col">
         {% highlight c# %}
-// Good
-HorizontalAlignment
-CanScrollHorizontally
-Surname
+        // Good
+        HorizontalAlignment
+        CanScrollHorizontally
+        Surname
 
-// Bad
-AlignmentHorizontal
-ScrollableX
-StrSurname
+        // Bad
+        AlignmentHorizontal
+        ScrollableX
+        StrSurname
         {% endhighlight %}
     </div>
 </div>
@@ -52,7 +52,7 @@ StrSurname
             <li>Only capitalize the first letter of each word or acronym</li>
             <li>A special exception is made for two-letter acronyms in which both letters are capitalized</li>
         </ul>
-        <p>The following should be upper camel case (UpperCamelCase):</p>
+        <p>Use upper camel case for (UpperCamelCase):</p>
         <ul>
             <li>Types and namespaces</li>
             <li>Methods, properties and events</li>
@@ -60,63 +60,63 @@ StrSurname
             <li>Enum members</li>
             <li>Fields, when not private</li>
         </ul>
-        <p>The following should be lower camel case (lowerCamelCase):</p>
+        <p>Use lower camel case for (lowerCamelCase):</p>
         <ul>
             <li>Local variables</li>
             <li>Parameters</li>
         </ul>
-        <p>The following should be underscore lower camel case (_lowerCamelCase):</p>
+        <p>Use underscore lower camel case for (_lowerCamelCase):</p>
         <ul>
             <li>Fields, when private</li>
         </ul>
-        <p>Interfaces should be upper camel case prefixed with I (IUpperCamelCase).</p>
-        <p>Generic types parameters should be upper camel case prefixed with T (TUpperCamelCase).</p>
+        <p>Use upper camel case prefixed with I for interfaces (IUpperCamelCase).</p>
+        <p>Use upper camel case prefixed with T for generic types (TUpperCamelCase).</p>
     </div>
     <div class="l-col">
         {% highlight c# %}
-// Capitalization conventions
+        // Capitalization conventions
+        HtmlTag
+        ResolveUrl
+        IOStream
 
-HtmlTag
-ResolveUrl
-IOStream
+        htmlTag
+        resolveUrl
+        ioStream
 
-htmlTag
-resolveUrl
-ioStream
-        
-// UpperCamelCase
-namespace CreativeJar.Standards
+        // UpperCamelCase
+        namespace CreativeJar.Standards
 
-public class Class
+        public class Class
 
-public string Field;
+        public string Field;
 
-public string Property { get; set; }
+        public string Property { get; set; }
 
-public void Method()
+        public void Method()
 
-public enum Enum
-{
-    ItemOne,
-    ItemTwo,
-    ItemThree
-}
+        public enum Enum
+        {
+        ItemOne,
+        ItemTwo,
+        ItemThree
+        }
 
-// lowerCamelCase
-public void Method(int parameter)
-{
-    var localVariable = parameter + 1;
-}
+        // lowerCamelCase
+        public void Method(int parameter)
+        {
+        var localVariable = parameter + 1;
+        }
 
-// _lowerCamelCase
-private string _field;
+        // _lowerCamelCase
+        private string _field;
 
-// IUpperCamelCase
-public interface INaming
+        // IUpperCamelCase
+        public interface INaming
 
-// TUpperCamelCase
-public class Class<TName> where TName : class
-        {% endhighlight %}
+        // TUpperCamelCase
+        public class Class<TName>
+            where TName : class
+            {% endhighlight %}
     </div>
 </div>
 <div class="l-container columns" id="formatting">
@@ -136,70 +136,80 @@ public class Class<TName> where TName : class
     </div>
     <div class="l-col">
         {% highlight c# %}
-using System.IO;
-using System.Linq;
+        using System.IO;
+        using System.Linq;
 
-namespace CreativeJar.Standards
-{
-    public class Formatting
-    {
+        namespace CreativeJar.Standards
+        {
+        public class Formatting
+        {
         public string Property1 { get; set; }
 
         public string Property2
         {
-            get { return null; }
-            set
-            {
-                Method();
-                Set(value);
-            }
+        get { return null; }
+        set
+        {
+        Method();
+        Set(value);
+        }
         }
 
         public int Method()
         {
-            var variable = new[] { 1, 2, 3 };
+        var variable = new[] { 1, 2, 3 };
 
-            for (var i = 0; i < variable.Length; i++)
-            {
-                variable[i] *= variable[i];
-            }
+        for (var i = 0; i < variable.Length; i++)
+        {
+        variable[i] *= variable[i];
+        }
 
-            return variable.Any()
-                ? variable.Last()
-                : default(int);
+        return variable.Any()
+        ? variable.Last()
+        : default(int);
         }
 
         private void Set(string value)
         {
-            using (var stream = File.Open(value, FileMode.Open))
-            using (var streamReader = new StreamReader(stream))
-            {
-                Property1 = streamReader.ReadToEnd();
-            }
+        using (var stream = File.Open(value, FileMode.Open))
+        using (var streamReader = new StreamReader(stream))
+        {
+        Property1 = streamReader.ReadToEnd();
         }
-    }
-}
-            {% endhighlight %}
+        }
+        }
+        }
+        {% endhighlight %}
     </div>
 </div>
 <div class="l-container columns" id="layout">
     <div class="l-col">
         <h2>Layout</h2>
         <ul>
+            <li>Classes should implement a uniform code structure</li>
             <li>
-                A convention of one type per file should be used, with certain exclusions
+                One type per file should be used, with certain exclusions
                 <ul>
                     <li>Enums can be collected into a single file but the name and location should be clear</li>
                     <li>Generic and non-generic implementations of the same type can exist in the same file</li>
                 </ul>
             </li>
-            <li>Write only one statement per line</li>
-            <li>Write only one declaration per line</li>
-            <li>Avoid long lines, continue statements on the next line</li>
-            <li>Indent continuation lines</li>
-            <li>Use blank lines to separate methods and properties</li>
-            <li>Use blank lines to improve legibility</li>
-            <li>Braces should be on their own line unless opening and closing on the same line</li>
+            <li>Regions should be used sparingly only to group related logic only, such as interface implementation</li>
         </ul>
+    </div>
+    <div class="l-col">
+        {% highlight bash %}
+        ├─ Namespace
+        |  └─ Class
+        |     ├── Enums
+        |     ├── Constants
+        |     ├── Static fields
+        |     ├── Fields
+        |     ├── Constructor
+        |     ├── Properties &amp; indexers
+        |     ├── Methods
+        |     ├── Interface implementations
+        |     └── Nested types
+        {% endhighlight %}
     </div>
 </div>

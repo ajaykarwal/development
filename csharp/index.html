@@ -8,13 +8,15 @@ permalink: /csharp/
 weight: 1
 ---
 
-<div>
-    <p>Code conventions serve the following purpose:</p>
-    <ul>
-        <li>A consistent look to the code</li>
-        <li>Code that is easier to read and follow</li>
-        <li>Facilitates the maintenance of code</li>
-    </ul>
+<div class="l-container columns">
+    <div class="l-col">
+        <p>Code conventions serve the following purpose:</p>
+        <ul>
+            <li>A consistent look to the code</li>
+            <li>Code that is easier to read and follow</li>
+            <li>Facilitates the maintenance of code</li>
+        </ul>
+    </div>
 </div>
 <div class="l-container columns" id="naming">
     <div class="l-col">
@@ -178,5 +180,26 @@ namespace CreativeJar.Standards
     }
 }
             {% endhighlight %}
+    </div>
+</div>
+<div class="l-container columns" id="layout">
+    <div class="l-col">
+        <h2>Layout</h2>
+        <ul>
+            <li>
+                A convention of one type per file should be used, with certain exclusions
+                <ul>
+                    <li>Enums can be collected into a single file but the name and location should be clear</li>
+                    <li>Generic and non-generic implementations of the same type can exist in the same file</li>
+                </ul>
+            </li>
+            <li>Write only one statement per line</li>
+            <li>Write only one declaration per line</li>
+            <li>Avoid long lines, continue statements on the next line</li>
+            <li>Indent continuation lines</li>
+            <li>Use blank lines to separate methods and properties</li>
+            <li>Use blank lines to improve legibility</li>
+            <li>Braces should be on their own line unless opening and closing on the same line</li>
+        </ul>
     </div>
 </div>

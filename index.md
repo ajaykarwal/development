@@ -25,10 +25,10 @@ And should be careful not to:
 * Over engineer 
 * Be a barrier for change
 
-### Standards and best practices
-
-Standards allow teams to produce consistent work. When standards are followed developers can pick up each others work easily and 
-understand it more readily. Through working to common conventions tasks can be completed predictably and rapidly.
+To help achieve technical excellence we work to a common standard. Standards allow 
+teams to produce consistent work. When standards are followed developers can pick up 
+each others work easily and understand it more readily. Through working to common 
+standards and conventions tasks can be completed predictably and rapidly.
 
 ## Table of contents
 * [C#](/development/csharp/)

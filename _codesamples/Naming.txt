@@ -1,11 +1,9 @@
 ﻿// Good
-
 HorizontalAlignment
 CanScrollHorizontally
 Surname
 
 // Bad
-
 AlignmentHorizontal
 ScrollableX
 StrSurname

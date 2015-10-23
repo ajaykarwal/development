@@ -33,15 +33,15 @@ weight: 1
     </div>
     <div class="l-col">
         {% highlight c# %}
-        // Good
-        HorizontalAlignment
-        CanScrollHorizontally
-        Surname
+// Good
+HorizontalAlignment
+CanScrollHorizontally
+Surname
 
-        // Bad
-        AlignmentHorizontal
-        ScrollableX
-        StrSurname
+// Bad
+AlignmentHorizontal
+ScrollableX
+StrSurname
         {% endhighlight %}
     </div>
 </div>
@@ -74,48 +74,47 @@ weight: 1
     </div>
     <div class="l-col">
         {% highlight c# %}
-        // Capitalization conventions
-        HtmlTag
-        ResolveUrl
-        IOStream
+// Capitalization conventions
+HtmlTag
+ResolveUrl
+IOStream
 
-        htmlTag
-        resolveUrl
-        ioStream
+htmlTag
+resolveUrl
+ioStream
 
-        // UpperCamelCase
-        namespace CreativeJar.Standards
+// UpperCamelCase
+namespace CreativeJar.Standards
 
-        public class Class
+public class Class
 
-        public string Field;
+public string Field;
 
-        public string Property { get; set; }
+public string Property { get; set; }
 
-        public void Method()
+public void Method()
 
-        public enum Enum
-        {
-        ItemOne,
-        ItemTwo,
-        ItemThree
-        }
+public enum Enum
+{
+    ItemOne,
+    ItemTwo,
+    ItemThree
+}
 
-        // lowerCamelCase
-        public void Method(int parameter)
-        {
-        var localVariable = parameter + 1;
-        }
+// lowerCamelCase
+public void Method(int parameter)
+{
+    var localVariable = parameter + 1;
+}
 
-        // _lowerCamelCase
-        private string _field;
+// _lowerCamelCase
+private string _field;
 
-        // IUpperCamelCase
-        public interface INaming
+// IUpperCamelCase
+public interface INaming
 
-        // TUpperCamelCase
-        public class Class<TName>
-            where TName : class
+// TUpperCamelCase
+public class Class<TName> where TName : class
             {% endhighlight %}
     </div>
 </div>
@@ -136,49 +135,50 @@ weight: 1
     </div>
     <div class="l-col">
         {% highlight c# %}
-        using System.IO;
-        using System.Linq;
+using System.IO;
+using System.Linq;
 
-        namespace CreativeJar.Standards
-        {
-        public class Formatting
-        {
+namespace CreativeJar.Standards
+{
+
+    public class Formatting
+    {
         public string Property1 { get; set; }
 
         public string Property2
         {
-        get { return null; }
-        set
-        {
-        Method();
-        Set(value);
-        }
+            get { return null; }
+            set
+            {
+                Method();
+                Set(value);
+            }
         }
 
         public int Method()
         {
-        var variable = new[] { 1, 2, 3 };
+            var variable = new[] { 1, 2, 3 };
 
-        for (var i = 0; i < variable.Length; i++)
-        {
-        variable[i] *= variable[i];
-        }
+            for (var i = 0; i < variable.Length; i++)
+            {
+                variable[i] *= variable[i];
+            }
 
-        return variable.Any()
-        ? variable.Last()
-        : default(int);
+            return variable.Any()
+                ? variable.Last()
+                : default(int);
         }
 
         private void Set(string value)
         {
-        using (var stream = File.Open(value, FileMode.Open))
-        using (var streamReader = new StreamReader(stream))
-        {
-        Property1 = streamReader.ReadToEnd();
+            using (var stream = File.Open(value, FileMode.Open))
+            using (var streamReader = new StreamReader(stream))
+            {
+                Property1 = streamReader.ReadToEnd();
+            }
         }
-        }
-        }
-        }
+    }
+}
         {% endhighlight %}
     </div>
 </div>

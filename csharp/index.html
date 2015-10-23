@@ -1,16 +1,55 @@
 ---
 layout: page
 title: C#
-pre-heading: Standards for
+pre-heading: Code conventions for
 heading: C#
 menu-label: C#
 permalink: /csharp/
 weight: 1
 ---
 
+<div>
+    <p>Code conventions serve the following purpose:</p>
+    <ul>
+        <li>A consistent look to the code</li>
+        <li>Code that is easier to read and follow</li>
+        <li>Facilitates the maintenance of code</li>
+    </ul>
+</div>
 <div class="l-container columns" id="naming">
     <div class="l-col">
         <h2>Naming</h2>
+        <ul>
+            <li>Choose easily readable names, use good English</li>
+            <li>Favour readability over brevity</li>
+            <li>Do not use underscores, hyphens, or other non alphanumeric characters</li>
+            <li>Do not use Hungarian notation</li>
+            <li>Avoid using identifiers that conflict with language keywords</li>
+            <li>Avoid using abbreviations or contractions</li>
+            <li>Avoid using acronyms that are not widely understood and accepted</li>
+        </ul>
+    </div>
+    <div class="l-col">
+        {% highlight c# %}
+// Good
+HorizontalAlignment
+CanScrollHorizontally
+Surname
+
+// Bad
+AlignmentHorizontal
+ScrollableX
+StrSurname
+        {% endhighlight %}
+    </div>
+</div>
+<div class="l-container columns" id="capitalization">
+    <div class="l-col">
+        <h2>Capitalization</h2>
+        <ul>
+            <li>Only capitalize the first letter of each word or acronym</li>
+            <li>A special exception is made for two-letter acronyms in which both letters are capitalized</li>
+        </ul>
         <p>The following should be upper camel case (UpperCamelCase):</p>
         <ul>
             <li>Types and namespaces</li>
@@ -22,49 +61,122 @@ weight: 1
         <p>The following should be lower camel case (lowerCamelCase):</p>
         <ul>
             <li>Local variables</li>
-            <li>Local constants</li>
             <li>Parameters</li>
         </ul>
         <p>The following should be underscore lower camel case (_lowerCamelCase):</p>
         <ul>
             <li>Fields, when private</li>
         </ul>
-        <p>Interfaces should be upper camel case prefix with I (IUpperCamelCase).</p>
-        <p>Generic types parameters should be upper camel case prefix with T (TUpperCamelCase).</p>
+        <p>Interfaces should be upper camel case prefixed with I (IUpperCamelCase).</p>
+        <p>Generic types parameters should be upper camel case prefixed with T (TUpperCamelCase).</p>
     </div>
     <div class="l-col">
         {% highlight c# %}
+// Capitalization conventions
+
+HtmlTag
+ResolveUrl
+IOStream
+
+htmlTag
+resolveUrl
+ioStream
+        
+// UpperCamelCase
+namespace CreativeJar.Standards
+
+public class Class
+
+public string Field;
+
+public string Property { get; set; }
+
+public void Method()
+
+public enum Enum
+{
+    ItemOne,
+    ItemTwo,
+    ItemThree
+}
+
+// lowerCamelCase
+public void Method(int parameter)
+{
+    var localVariable = parameter + 1;
+}
+
+// _lowerCamelCase
+private string _field;
+
+// IUpperCamelCase
+public interface INaming
+
+// TUpperCamelCase
+public class Class<TName> where TName : class
+        {% endhighlight %}
+    </div>
+</div>
+<div class="l-container columns" id="formatting">
+    <div class="l-col">
+        <h2>Formatting</h2>
+        <ul>
+            <li>Format code for legibility</li>
+            <li>Use the default editor settings (smart indent, four space indents, tabs saved as spaces)</li>
+            <li>Write only one statement per line</li>
+            <li>Write only one declaration per line</li>
+            <li>Avoid long lines, continue statements on the next line</li>
+            <li>Indent continuation lines</li>
+            <li>Use blank lines to separate methods and properties</li>
+            <li>Use blank lines to improve legibility</li>
+            <li>Braces should be on their own line unless opening and closing on the same line</li>
+        </ul>
+    </div>
+    <div class="l-col">
+        {% highlight c# %}
+using System.IO;
+using System.Linq;
+
 namespace CreativeJar.Standards
 {
-    public interface INaming
-    {}
-
-    public class Naming<TName> : INaming
+    public class Formatting
     {
-        private string _myPrivateField;
+        public string Property1 { get; set; }
 
-        public string MyPublicField;
-
-        public Naming()
+        public string Property2
         {
-            //...
+            get { return null; }
+            set
+            {
+                Method();
+                Set(value);
+            }
         }
 
-        public string MyProperty { get; set; }
-
-        public TName MyMethod()
+        public int Method()
         {
-            return default(TName);
+            var variable = new[] { 1, 2, 3 };
+
+            for (var i = 0; i < variable.Length; i++)
+            {
+                variable[i] *= variable[i];
+            }
+
+            return variable.Any()
+                ? variable.Last()
+                : default(int);
         }
 
-        public enum MyEnum
+        private void Set(string value)
         {
-            ItemOne,
-            ItemTwo,
-            ItemThree
+            using (var stream = File.Open(value, FileMode.Open))
+            using (var streamReader = new StreamReader(stream))
+            {
+                Property1 = streamReader.ReadToEnd();
+            }
         }
     }
 }
-        {% endhighlight %}
+            {% endhighlight %}
     </div>
 </div>

@@ -1,0 +1,11 @@
+// ----------------------------------------
+// Main
+// ----------------------------------------
+
+main[role=main] {
+	padding:								0 0 $spacing-unit-base*3;
+	overflow: 								hidden;
+	.l-content:first-of-top {
+		margin-top: 						$spacing-unit-base*3;
+	}
+}

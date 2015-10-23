@@ -1,0 +1,58 @@
+/*doc
+----
+title: Headings
+name: Headings
+category: Base
+---
+
+```html_example
+	<h1>Heading 1</h1>
+	<h2>Heading 2</h2>
+```
+*/
+
+h1, h2, h3, h4, h5, h6 {
+	margin:									$spacing-unit-base 0;
+}
+
+h1 {
+	font:									700 120px/1 $font-family-brand;
+	text-align: 							center;
+	text-transform: 						uppercase;
+    @include breakpoint($breakpoint-small) {
+        font-size:                          50px;
+    }
+}
+
+h2 {
+	font:									700 42px $font-family-brand;
+	text-align: 							center;
+	text-transform: 						uppercase;	
+}
+
+h3:first-child {
+	margin-top: 							0;
+}
+
+/*doc
+----
+title: Headings with emphasis
+name: Headings with emphasis
+category: Base
+---
+
+Adding a `<span>` element to text within your heading will result in multiple lines and emphasis on the words outside of the `<span>`
+
+```html_example
+	<h1><span>Heading 1</span> Lorem ipsum dolor</h1>
+```
+*/
+
+h1 span {
+	font-size:								18px;
+	display: 								block;
+	margin-bottom: 							5px;
+    @include breakpoint($breakpoint-small) {
+        font-size:                          14px;
+    }
+}

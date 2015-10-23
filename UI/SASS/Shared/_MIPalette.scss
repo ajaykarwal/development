@@ -1,0 +1,7 @@
+// ----------------------------------------
+// Colour Palette mix-in
+// ----------------------------------------
+
+@function palette($palette, $tone: 'base') {
+    @return map-get(map-get($palettes, $palette), $tone);
+}

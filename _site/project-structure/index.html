@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>UI Guidelines &bull; Project Structure</title>
+		<meta name="description" content="">		
+		<link rel="stylesheet" href="/UI/CSS/Default.css">
+		<link rel="canonical" href="/project-structure/">
+		<link rel="alternate" type="application/rss+xml" title="UI Guidelines" href="/feed.xml" />
+	</head>
+  <body>
+    <header role="banner">
+	<a class="cj-logo" href="http://www.creative-jar.com">
+        <span hidden>Creative Jar</span>
+        <object type="image/svg+xml" data="/Uploads/Images/creative-jar-logo.svg"></object>
+    </a>
+    <nav role="navigation">
+	    <button data-icon-name="hamburger"><span>Menu</span></button>
+	    
+		<ul>
+			
+			<li>
+				<a  href="/">Home</a>
+			</li>
+			
+			<li>
+				<a class="is-active" href="/project-structure/">Project Structure</a>
+			</li>
+			
+			<li>
+				<a  href="/html/">HTML</a>
+			</li>
+			
+			<li>
+				<a  href="/css/">CSS</a>
+			</li>
+			
+			<li>
+				<a  href="/testing/">Testing</a>
+			</li>
+			
+		</ul>
+    </nav>
+</header>
+    <main role="main">
+	<header class="banner">
+		<div class="l-container">
+			<h1>
+				
+					<span>Getting the right structure for your</span>
+				
+				Projects
+			</h1>
+		</div>
+	</header>
+	<div class="l-container columns" id="structure">
+	<div class="l-col">
+		<ul>
+			<li>All projects follow a strict folder and file structure, so please be sure to follow these guidelines for all projects in which platform allows.</li>
+			<li>A core UI folder should sit in the root of your project which hosts all files associated with the user interface of the project. This allows for easier re-development in the future.</li>
+			<li>All files and folders should be <strong>UpperCamelCased</strong>. This adheres to the same naming convention set out by the back-end developers and the .NET framework.</li>
+			<li>Any files or folders which are abbreviations, should be <strong>UPPERCASED</strong>. e.g. CSS.</li>
+			<li>The UI folder should consist of the following sub-folders, with files appropriately placed;
+				<ul>
+					<li>CSS</li>
+					<li>Images</li>
+					<li>JavaScript</li>
+					<li>Sass</li>
+					<li>Styleguide</li>
+				</ul>
+			</li>
+			<li>When beginning a new project, to ensure consistency and that these guidelines are adhered to, download <a href="https://github.com/creativejar/boilerplate">Creative Jar's boilerplate from Github</a>.</li>
+		</ul>
+	</div>
+	<div class="l-col">
+		<div class="highlight"><pre><code class="language-bash" data-lang="bash">.
+├── UI
+<span class="p">|</span>   ├── CSS
+<span class="p">|</span>   ├── Images
+<span class="p">|</span>   ├── JavaScript
+<span class="p">|</span>   ├── Sass
+<span class="p">|</span>   └── Styleguide
+├── Uploads
+<span class="p">|</span>   ├── Images
+<span class="p">|</span>   └── PDF</code></pre></div>
+	</div>
+</div>
+<div class="l-container columns" id="css-sass">
+	<div class="l-col">
+		<h2>CSS &amp; Sass</h2>
+		<ul>
+			<li>All CSS and Sass files related to the project's user interface should sit in their respective folders.</li>
+			<li>For more information on how these should be structure, see the <a href="/css/#structure">CSS section of our guidelines</a>.</li>
+		</ul>
+	</div>
+</div>
+<div class="l-container columns" id="images">
+	<div class="l-col">
+		<h2>Images</h2>
+		<ul>
+			<li>All images related to the project's user interface should sit within the Images folder.</li>
+			<li>Categorisation of images in sub-folders is encouraged. e.g Icons.</li>
+			<li>Any content based images should sit within the Uploads folder, as this is likely to be where clients upload their content images also.</li>
+			<li>Where images in the UI folder should be UpperCamelCased, images in the Uploads folder should be lowercased and hyphenated for increased readability and SEO purposes e.g. creative-jar-logo.png</li>
+		</ul>
+	</div>
+	<div class="l-col">
+		<div class="highlight"><pre><code class="language-bash" data-lang="bash">.
+├── UI
+<span class="p">|</span>   ├── Images
+<span class="p">|</span>   <span class="p">|</span>   ├── HeaderBg.png
+<span class="p">|</span>   <span class="p">|</span>   └── Icons
+├── Uploads
+<span class="p">|</span>   ├── Images
+<span class="p">|</span>   <span class="p">|</span>   └── creative-jar-logo.png</code></pre></div>		
+	</div>
+</div>
+<div class="l-container columns" id="javascript">
+	<div class="l-col">
+		<h2>JavaScript</h2>
+			<ul>
+				<li>All JavaScript related to the project's user interface should sit within the JavaScript folder.</li>
+				<li>JavaScript related to the globally to the project should sit within a main JavaScript file named Global.js</li>
+				<li>Components of JavaScript should sit within a Component folder. These files should follow the same naming convention as the relevant CSS.</li>
+				<li>JavaScript files which have been downloaded such as jQuery or relevant plugins should sit within a Vendor folder.</li>
+				<li>The use of <a href="http://requirejs.org/">Require.js</a> is strongly encouraged for the loading and dependency management of JavaScript files.</li>
+			</ul>
+	</div>
+	<div class="l-col">
+		<div class="highlight"><pre><code class="language-bash" data-lang="bash">.
+├── UI
+<span class="p">|</span>   ├── JavaScript
+<span class="p">|</span>   <span class="p">|</span>   ├── Components
+<span class="p">|</span>   <span class="p">|</span>   <span class="p">|</span>   ├── Navigation.js
+<span class="p">|</span>   <span class="p">|</span>   <span class="p">|</span>   └── Tabs.js
+<span class="p">|</span>   <span class="p">|</span>   ├── Vendor
+<span class="p">|</span>   <span class="p">|</span>   <span class="p">|</span>   └── jquery-1.11.2.min.js
+<span class="p">|</span>   <span class="p">|</span>   ├── Global.js
+<span class="p">|</span>   <span class="p">|</span>   └── Product.js</code></pre></div>
+	</div>
+</div>
+<div class="l-container columns" id="styleguide">
+	<div class="l-col">
+		<h2>Styleguide</h2>
+		<ul>
+			<li>All files related to the project's styleguide</li>
+			<li>Styleguides should be generated using <a href="https://github.com/trulia/hologram">Hologram</a></li>
+			<li>Utilise <a href="https://github.com/creativejar/boilerplate">Creative Jar's boilerplate</a> for all relevant files and for a base template for you to customise for a client's project.</li> 
+		</ul>
+	</div>
+</div>
+</main>
+    <footer role="contentinfo">
+	<div class="container">
+		<p>&copy; Creative Jar 2015</p>
+	</div>
+</footer>    
+    <script data-main="/UI/JavaScript/Global" src="/UI/JavaScript/Vendor/require.min.js"></script>
+  </body>
+</html>

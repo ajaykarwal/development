@@ -1,0 +1,16 @@
+---
+layout: default
+---
+<main role="main">
+	<header class="banner">
+		<div class="l-container">
+			<h1>
+				{% if page.pre-heading %}
+					<span>{{ page.pre-heading }}</span>
+				{% endif %}
+				{{ page.heading }}
+			</h1>
+		</div>
+	</header>
+	{{ content }}
+</main>

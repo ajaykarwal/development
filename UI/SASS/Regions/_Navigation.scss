@@ -1,0 +1,67 @@
+// ----------------------------------------
+// Navigation
+// ----------------------------------------
+
+nav[role=navigation] {
+	button {
+		appearance: 						none;
+		background:							none;
+		border: 							0;
+        color:                              palette(neutral);
+		cursor: 							pointer;
+		float: 								right;
+	    font:								#{$font-size-base}/40px $font-family-base;
+		outline: 							none;
+		padding: 							0;
+		position: 							relative;
+		z-index: 							100;
+        span {
+            float:                          left;
+            overflow:                       hidden;
+            text-transform:                 uppercase;
+            span.inner {
+                float:                      none;
+                position:                   relative;
+            }
+        }
+	  	svg {
+            float:                          right;
+            margin-left:                    $spacing-unit-base;
+	  	    height: 						40px;
+		  	width: 							40px;
+		}
+	}
+	ul {
+		background:							palette(blue);
+		display: 							block;
+	    height: 							100%;
+	    margin: 							0;
+	    overflow: 							hidden;
+	    padding-top:						100px;
+	    position: 							fixed;
+	    right: 								span(3 of 12)*-1;
+	    top: 								0;
+	    width: 								span(3 of 12);
+	    z-index: 							90;
+	    @include breakpoint($breakpoint-small) {
+		    right:							span(4 of 6)*-1;
+		    width:							span(4 of 6);
+	    }
+	    li {
+		    a {
+			    color:						palette(neutral);
+			    display: 					block;
+			    font-size:					18px;
+			    padding:					15px gutter(3);
+			    text-align: 				right;
+			    text-decoration: 			none;
+			    text-transform: 			uppercase;
+				@include                    transition(all .25s ease-in);
+			    &:hover {
+				    background:				palette(neutral);
+				    color:					palette(blue);
+			    }
+		    }
+	    }
+    }
+}

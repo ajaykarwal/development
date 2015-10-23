@@ -1,0 +1,18 @@
+/*doc
+----
+title: Quotes
+name: Quotes
+category: Base
+---
+
+```html_example
+	<blockquote>
+		<p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</
+	</blockquote>
+```
+*/
+
+blockquote {
+	margin:									$spacing-unit-base 0 $spacing-unit-base $spacing-unit-base;
+	font-style: 							italic;
+}

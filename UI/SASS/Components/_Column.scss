@@ -1,0 +1,71 @@
+/*doc
+---
+title: Column
+name: l-column
+category: Content
+---
+
+```html_example
+    <div class="l-col">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean lacinia bibendum nulla sed 
+        consectetur. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. 
+        Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa 
+        justo sit amet risus. Nullam id dolor id nibh ultricies vehicula ut id elit. Nulla vitae elit 
+        libero, a pharetra augue.</p>
+    </div>
+```
+*/
+
+.columns {
+	@include								flexbox;
+	position: 								relative;
+	&:before {
+		border-top:							1px solid palette(neutral-grey, light);
+		content:							'';
+		display: 							block;
+		left:								-500%;
+		right:								-500%;
+		position: 							absolute;
+		top:								0;
+	}
+	&:last-child {
+		margin-bottom: 						$spacing-unit-base*-3;
+	}
+	@include breakpoint($breakpoint-large) {
+		display: 							block;
+		&:before {
+			display: 						none;
+		}
+	}
+}
+
+.l-col {
+	vertical-align:							top;
+	padding: 								0 gutter(12);
+	width:									span(6 of 12);
+	+ .l-col {
+		background:							palette(neutral-grey, light);
+		padding: 							gutter(6);
+		position: 							relative;
+		&:after {
+			background:						palette(neutral-grey, light);
+			bottom:							0;
+			content:						'';
+			display: 						block;
+			left:							100%;
+			position:						absolute;
+			top:							0;
+			width:							300%;
+		}
+	}
+	h2, h3, h4, h5, h6 {
+		text-align: 						left;
+	}
+	@include breakpoint($breakpoint-large) {
+		float:								none;
+		width:								auto;
+		+ .l-col:after {
+			display: 						none;
+		}
+	}
+}

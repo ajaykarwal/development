@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>UI Guidelines &bull; CSS</title>
+		<meta name="description" content="">		
+		<link rel="stylesheet" href="/UI/CSS/Default.css">
+		<link rel="canonical" href="/css/">
+		<link rel="alternate" type="application/rss+xml" title="UI Guidelines" href="/feed.xml" />
+	</head>
+  <body>
+    <header role="banner">
+	<a class="cj-logo" href="http://www.creative-jar.com">
+        <span hidden>Creative Jar</span>
+        <object type="image/svg+xml" data="/Uploads/Images/creative-jar-logo.svg"></object>
+    </a>
+    <nav role="navigation">
+	    <button data-icon-name="hamburger"><span>Menu</span></button>
+	    
+		<ul>
+			
+			<li>
+				<a  href="/">Home</a>
+			</li>
+			
+			<li>
+				<a  href="/project-structure/">Project Structure</a>
+			</li>
+			
+			<li>
+				<a  href="/html/">HTML</a>
+			</li>
+			
+			<li>
+				<a class="is-active" href="/css/">CSS</a>
+			</li>
+			
+			<li>
+				<a  href="/testing/">Testing</a>
+			</li>
+			
+		</ul>
+    </nav>
+</header>
+    <main role="main">
+	<header class="banner">
+		<div class="l-container">
+			<h1>
+				
+					<span>How to write your</span>
+				
+				CSS
+			</h1>
+		</div>
+	</header>
+	<div class="l-container columns" id="structure">
+	<div class="l-col">
+	<h2>Structure</h2>
+		<ul>
+			<li>The core CSS file included within your HTML should be named Default.css</li>
+			<li>Minified CSS files should be named appropriately e.g. min.css</li>
+			<li>Where platforms allow, CSS &amp; Sass should sit within the standard UI folder structure with a respective folder for each.</li>
+			<li>Partial Sass files should be created for each block of code and separated into the following folder structure;
+				<ul>
+					<li>Base<br/>
+					Global styles &amp; elements without the use of classes e.g. paragraphs, lists, headings, tables.</li>
+					<li>Components<br/>
+					Site specific components or modules e.g. call to actions, panels. Variations upon components should be included in the same file.</li>
+					<li>Regions<br/>
+					Styles associated to specific regions of content, not intended for multiple use e.g. global header, footer, navigation.</li>
+					<li>Shared<br/>
+					Styles, or Sass settings which set up the core structure of the project e.g. colour palette, grid, mix-ins, reset, variables.</li>
+					<li>Vendor<br/>
+					Files and styles specific to plugins. These will generally be the standard CSS supplied with the plugin, modified as required for the specific project.</li>
+				</ul>
+			</li>
+			<li>Partial files should be imported into your single Default.scss</li>
+			<li>These partial files should be imported in a logical order and resemble the levels of specificity within the project e.g. base styles, then components, then regions.</li>
+		</ul>
+	</div>
+	<div class="l-col">
+		<div class="highlight"><pre><code class="language-bash" data-lang="bash">.
+├── CSS
+<span class="p">|</span>   ├── Default.css
+<span class="p">|</span>   └── Default.min.css
+├── Sass
+<span class="p">|</span>   ├── Base
+<span class="p">|</span>   <span class="p">|</span>   ├── _Headings.scss
+<span class="p">|</span>   <span class="p">|</span>   ├── _Links.scss
+<span class="p">|</span>   <span class="p">|</span>   ├── _Lists.scss
+<span class="p">|</span>   <span class="p">|</span>   ├── _Main.scss
+<span class="p">|</span>   <span class="p">|</span>   └── _Paragraphs.scss
+<span class="p">|</span>   ├── Components
+<span class="p">|</span>   <span class="p">|</span>   ├── _Banner.scss
+<span class="p">|</span>   <span class="p">|</span>   ├── _Content.scss
+<span class="p">|</span>   <span class="p">|</span>   └── _Social.scss
+<span class="p">|</span>   ├── Regions
+<span class="p">|</span>   <span class="p">|</span>   ├── _Footer.scss
+<span class="p">|</span>   <span class="p">|</span>   ├── _Header.scss
+<span class="p">|</span>   <span class="p">|</span>   ├── _Main.scss
+<span class="p">|</span>   <span class="p">|</span>   └── _Navigation.scss
+<span class="p">|</span>   ├── Shared
+<span class="p">|</span>   <span class="p">|</span>   ├── _Clearfix.scss
+<span class="p">|</span>   <span class="p">|</span>   ├── _ColourPalette.scss
+<span class="p">|</span>   <span class="p">|</span>   ├── _Grid.scss
+<span class="p">|</span>   <span class="p">|</span>   ├── _MIPalette.scss
+<span class="p">|</span>   <span class="p">|</span>   ├── _Reset.scss
+<span class="p">|</span>   <span class="p">|</span>   └── _Settings.scss
+<span class="p">|</span>   └── Vendor
+<span class="p">|</span>   <span class="p">|</span>   └── _SyntaxHighlighting.scss</code></pre></div>
+	</div>
+</div>
+<div class="l-container columns" id="documentation">
+	<div class="l-col">
+		<h2>Documentation</h2>
+		<ul>
+			<li>For key sections of your CSS file, commenting should be practised in order to increase readability.</li>
+			<li>Base styles and components should be appropriately commented to allow for automated stylesheet generation using <a href="https://github.com/trulia/hologram">Hologram</a>.</li>
+		</ul>
+	</div>
+	<div class="l-col">
+		<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="cm">/*doc</span>
+<span class="cm">---</span>
+<span class="cm">title: Alert</span>
+<span class="cm">name: alert</span>
+<span class="cm">category: basics</span>
+<span class="cm">---</span>
+<span class="cm">```html_example</span>
+<span class="cm">    &lt;div class=&#39;alert&#39;&gt;Hello&lt;/div&gt;</span>
+<span class="cm">```</span>
+<span class="cm">*/</span></code></pre></div>
+	</div>
+</div>
+<div class="l-container columns" id="reset">
+	<div class="l-col">
+	<h2>Reset</h2>
+		<ul>
+			<li>Every project should begin with the use of <a href="https://github.com/creativejar/boilerplate/blob/master/UI/SASS/Shared/_Reset.scss" target="_blank">Creative Jar’s reset stylesheet</a>.</li>
+			<li>Rules should only be reset to ensure consistency and with relevant styles being set e.g. bullet point lists should still have their left indent and bullets.</li>
+			<li>To ensure easier responsive authoring and maintainability, the use of the <code>border-box</code> box model is encouraged.</li>
+		</ul>
+	</div>
+</div>
+<div class="l-container columns" id="syntax">
+	<div class="l-col">
+		<h2>Syntax</h2>
+		<ul>
+			<li>CSS declarations should follow the ‘semi-expanded’ format. Therefore, each selector and property within your CSS should be written on its own line.</li>
+			<li>When grouping selectors, keep individual selectors to a single line.</li>
+			<li>Include one space before the opening brace of declaration blocks for legibility.</li>
+			<li>A value should be indented from its property, lining up vertically with all other values in the CSS file.</li>
+			<li>Properties should be alphabetised within their CSS declaration. This reduces the chance of redefining properties in multi-author projects.</li>
+			<li>When declaring CSS3 properties, vendor prefixes should appear before the standardised properties, whilst remaining alphabetised.</li>
+	</div>
+	<div class="l-col">
+		<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nn">#selector</span> <span class="p">{</span>
+    <span class="na">background</span><span class="o">:</span>                  <span class="nf">rgb</span><span class="p">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="p">)</span> <span class="sx">url(&#39;../Images/Bg.gif&#39;)</span> <span class="no">no-repeat</span><span class="p">;</span>
+    <span class="na">-moz-box-shadow</span><span class="o">:</span>             <span class="mi">0</span> <span class="mi">0</span> <span class="mi">10</span><span class="kt">px</span> <span class="nf">rgba</span><span class="p">(</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">,.</span><span class="mi">2</span><span class="p">);</span>
+    <span class="na">-wekbit-box-shadow</span><span class="o">:</span>          <span class="mi">0</span> <span class="mi">0</span> <span class="mi">10</span><span class="kt">px</span> <span class="nf">rgba</span><span class="p">(</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">,.</span><span class="mi">2</span><span class="p">);</span>
+    <span class="na">box-shadow</span><span class="o">:</span>                  <span class="mi">0</span> <span class="mi">0</span> <span class="mi">10</span><span class="kt">px</span> <span class="nf">rgba</span><span class="p">(</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">,</span><span class="mi">0</span><span class="o">,.</span><span class="mi">2</span><span class="p">);</span>
+    <span class="na">color</span><span class="o">:</span>                       <span class="nf">rgb</span><span class="p">(</span><span class="mi">255</span><span class="o">,</span> <span class="mi">255</span><span class="o">,</span> <span class="mi">255</span><span class="p">);</span>
+    <span class="na">font</span><span class="o">:</span>                        <span class="mi">14</span><span class="kt">px</span> <span class="n">Arial</span><span class="o">,</span> <span class="no">sans-serif</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
+	</div>
+</div>
+<div class="l-container columns" id="nesting-and-specificity">
+	<div class="l-col">
+		<h2>Nesting &amp; Specificity</h2>
+		<ul>
+			<li>The use of class names is strongly encouraged over IDs. Reserving IDs for unique instances of a module.</li>
+			<li>CSS should not be nested according to region container locations, adding too much specificity. If you value modularity you will strive to avoid contextual styles.</li>
+			<li>Use of descendant selectors (nesting) should only be utilised for directly related elements of a module. e.g heading within panel, list within unordered list etc.</li>
+			<li>As a rule of thumb, it is advised not to have more than <strong>4 levels</strong> of descendants in your selectors. This ensures that CSS remains modularised and prevents future issues with specificity. Otherwise known as the ‘The Inception Rule’.</li>
+			<li>Use of <code>!important</code> is unnecessary, and strongly discouraged.</li>
+		</ul>
+	</div>
+	<div class="l-col">
+		<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="cm">/* Bad CSS */</span>
+<span class="nt">nav</span><span class="nn">#primary</span> <span class="p">{</span>
+	<span class="nt">ul</span> <span class="p">{</span>
+		<span class="nt">li</span> <span class="p">{</span>
+			<span class="nt">a</span> <span class="p">{</span>
+			<span class="p">}</span>
+			<span class="nt">ul</span> <span class="p">{</span>
+				<span class="nt">li</span> <span class="p">{</span>
+					<span class="nt">a</span> <span class="p">{</span>
+						<span class="nc">...</span>
+					<span class="p">}</span>
+				<span class="p">}</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+
+<span class="cm">/* Good CSS */</span>
+<span class="nt">nav</span> <span class="p">{</span>
+	<span class="nt">ul</span><span class="nc">.primary-level</span> <span class="p">{</span>
+		<span class="o">&gt;</span> <span class="nt">li</span> <span class="p">{</span>
+			<span class="o">&gt;</span> <span class="nt">a</span> <span class="p">{</span>
+				<span class="nc">...</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="nt">ul</span><span class="nc">.drop-down</span> <span class="p">{</span>
+		<span class="o">&gt;</span> <span class="nt">li</span> <span class="p">{</span>
+			<span class="o">&gt;</span> <span class="nt">a</span> <span class="p">{</span>
+				<span class="nc">...</span>
+			<span class="p">}</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+	</div>
+</div>
+<div class="l-container columns" id="naming-conventions">
+	<div class="l-col">
+		<h2>Naming Conventions</h2>
+		<ul>
+			<li>Class names and identifiers should be lowercased and hyphenated</li>
+			<li>Class names and identifiers should follow the SMACSS approach;
+				<ul>
+					<li>Components are straightforward and simply be named the module/component itself</li>
+					<li>Layout based rules should be prefixed with <code>l-</code></li>
+					<li>State based rules should be prefixed with <code>is-</code></li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<div class="l-col">
+		<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nc">.panel</span> <span class="p">{</span>
+	<span class="nc">...</span>
+<span class="p">}</span>
+
+<span class="nt">nav</span><span class="o">[</span><span class="nt">role</span><span class="o">=</span><span class="nt">navigation</span><span class="o">]</span> <span class="nt">ul</span> <span class="nt">li</span><span class="nc">.is-active</span> <span class="nt">a</span> <span class="p">{</span>
+	<span class="nc">...</span>
+<span class="p">}</span>
+
+<span class="nc">.tabbed-content.is-active</span> <span class="p">{</span>
+	<span class="nc">...</span>
+<span class="p">}</span>
+
+<span class="nc">.l-container</span> <span class="p">{</span>
+	<span class="nc">...</span>
+<span class="p">}</span>
+
+<span class="nc">.l-col</span> <span class="p">{</span>
+	<span class="nc">...</span>
+<span class="p">}</span></code></pre></div>
+	</div>
+</div>
+<div class="l-container columns" id="variables">
+	<div class="l-col">
+		<h2>Variables</h2>
+		<ul>
+			<li>Like class names, variables should be descriptive of their use and application rather than their visual style</li>
+			<li>Variables should be lowercased and hyphenated for increased readability</li>
+			<li>Use of variables is encouraged for recurring instances e.g. colours, fonts, grid units, image paths</li>
+			<li>Variables should be grouped through the use of prefixing, allowing for improved code hinting e.g. <code>color-</code>, <code>font-</code></li>
+		</ul>
+	</div>
+	<div class="l-col">
+		<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="c1">// Base Typography</span>
+<span class="nv">$font-size-base</span><span class="o">:</span>             <span class="mi">15</span><span class="kt">px</span><span class="p">;</span>
+<span class="nv">$line-height-base</span><span class="o">:</span>           <span class="mi">25</span><span class="kt">px</span><span class="p">;</span>
+
+<span class="nv">$font-size-small</span><span class="o">:</span>            <span class="mi">12</span><span class="kt">px</span><span class="p">;</span>
+<span class="nv">$font-size-tiny</span><span class="o">:</span>             <span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
+
+<span class="c1">// Font Stacks</span>
+<span class="nv">$font-family-base</span><span class="o">:</span>           <span class="s1">&#39;</span><span class="s2">Arial&#39;</span><span class="o">,</span> <span class="no">sans-serif</span><span class="p">;</span>
+
+<span class="c1">// Default Spacing</span>
+<span class="nv">$spacing-unit-base</span><span class="o">:</span>          <span class="mi">25</span><span class="kt">px</span><span class="p">;</span>
+<span class="nv">$spacing-unit-large</span><span class="o">:</span>         <span class="nv">$spacing-unit-base</span><span class="o">*</span><span class="mi">2</span><span class="p">;</span>
+<span class="nv">$spacing-unit-small</span><span class="o">:</span>         <span class="nv">$spacing-unit-base</span><span class="o">/</span><span class="mi">2</span><span class="p">;</span></code></pre></div>
+	</div>
+</div>
+<div class="l-container columns" id="colours">
+	<div class="l-col">
+		<h2>Colours</h2>
+		<ul>
+			<li>Colours should be defined using the rgb format. This allows for easy updates to rgba colour values in the future.</li>
+			<li>A project's colour palette should be defined via the use of Sass maps, grouping colours and tints together appropriately.</li>
+			<li>Colours can then be referenced within your Sass using the functions outlined in <a href="http://erskinedesign.com/blog/friendlier-colour-names-sass-maps/">this blog post</a>.</li>
+		</ul>
+	</div>
+	<div class="l-col">
+		<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="nv">$color-neutral-grey</span><span class="o">:</span>         <span class="nf">rgb</span><span class="p">(</span><span class="mi">53</span><span class="o">,</span> <span class="mi">53</span><span class="o">,</span> <span class="mi">53</span><span class="p">);</span>
+<span class="nv">$color-brand-accent</span><span class="o">:</span>         <span class="nf">rgb</span><span class="p">(</span><span class="mi">255</span><span class="o">,</span> <span class="mi">70</span><span class="o">,</span> <span class="mi">0</span><span class="p">);</span>
+
+<span class="nv">$palettes</span><span class="o">:</span> <span class="p">(</span>
+    <span class="n">neutral</span><span class="o">:</span> <span class="p">(</span>
+        <span class="n">base</span><span class="o">:</span>                <span class="nf">rgb</span><span class="p">(</span><span class="mi">255</span><span class="o">,</span> <span class="mi">255</span><span class="o">,</span> <span class="mi">255</span><span class="p">)</span><span class="o">,</span> 
+        <span class="n">dark</span><span class="o">:</span>                <span class="nf">rgb</span><span class="p">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">)</span><span class="o">,</span> 
+    <span class="n">neutral-grey</span><span class="o">:</span> <span class="p">(</span>
+        <span class="n">base</span><span class="o">:</span>                <span class="nv">$color-neutral-grey</span><span class="o">,</span>
+        <span class="n">dark</span><span class="o">:</span>                <span class="nf">rgb</span><span class="p">(</span><span class="mi">36</span><span class="o">,</span> <span class="mi">36</span><span class="o">,</span> <span class="mi">36</span><span class="p">)</span><span class="o">,</span> 
+        <span class="n">light</span><span class="o">:</span>               <span class="nf">lighten</span><span class="p">(</span><span class="nv">$color-neutral-grey</span><span class="o">,</span> <span class="mi">70</span><span class="kt">%</span><span class="p">)</span>
+    <span class="p">)</span><span class="o">,</span> 
+    <span class="n">brand-accent</span><span class="o">:</span> <span class="p">(</span>
+        <span class="n">base</span><span class="o">:</span>                <span class="nv">$color-brand-accent</span><span class="o">,</span> 
+    <span class="p">)</span><span class="o">,</span> 
+    <span class="nb">blue</span><span class="o">:</span> <span class="p">(</span>
+        <span class="n">base</span><span class="o">:</span>                <span class="nf">rgb</span><span class="p">(</span><span class="mi">0</span><span class="o">,</span> <span class="mi">123</span><span class="o">,</span> <span class="mi">145</span><span class="p">)</span>
+    <span class="p">)</span>
+<span class="p">);</span></code></pre></div>
+	</div>
+</div>
+<div class="l-container columns" id="units">
+	<div class="l-col">
+		<h2>Units</h2>
+		<ul>
+			<li>In majority of cases, <code>px</code> (pixels) should be used as the unit of measurement e.g. module dimensions, margins, paddings and font sizes</li>
+			<li>Where required and applicable, <code>%</code> (percentages) should be used for responsive requirements.</li>
+		</ul>
+	</div>
+</div>
+<div class="l-container columns" id="grids">
+	<div class="l-col">
+		<h2>Grids</h2>
+		<ul>
+			<li>Use of a grid system for all layout is encouraged, but only implemented through CSS without the requirement of adding class names to HTML elements.</li>
+			<li><a href="http://susydocs.oddbird.net/">Susy</a> is our preferred grid system of choice.</li>
+		</ul>
+	</div>
+	<div class="l-col">
+		<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="k">@import</span> <span class="s2">&quot;susy&quot;</span><span class="p">;</span>
+
+<span class="nv">$susy</span><span class="o">:</span> <span class="p">(</span>
+    <span class="n">columns</span><span class="o">:</span>                  <span class="mi">12</span><span class="o">,</span>
+    <span class="n">math</span><span class="o">:</span>                     <span class="n">fluid</span><span class="o">,</span>
+    <span class="n">output</span><span class="o">:</span>                   <span class="no">float</span>
+<span class="p">);</span>
+
+<span class="nc">.l-container</span> <span class="p">{</span>
+    <span class="k">@include</span>                  <span class="nt">container</span><span class="o">(</span><span class="nt">1280px</span><span class="o">);</span>
+    <span class="nt">padding</span><span class="nd">:</span>                  <span class="nt">0</span> <span class="nt">gutter</span><span class="o">(</span><span class="nt">12</span><span class="o">);</span>
+<span class="p">}</span>
+
+<span class="nc">.l-col</span> <span class="p">{</span>
+    <span class="na">padding</span><span class="o">:</span>                  <span class="mi">0</span> <span class="nf">gutter</span><span class="p">(</span><span class="mi">12</span><span class="p">);</span>
+    <span class="na">width</span><span class="o">:</span>                    <span class="nf">span</span><span class="p">(</span><span class="mi">6</span> <span class="n">of</span> <span class="mi">12</span><span class="p">);</span>
+<span class="p">}</span></code></pre></div>
+	</div>
+</div>
+<div class="l-container columns" id="media-queries">
+	<div class="l-col">
+		<h2>Media queries</h2>
+		<ul>
+			<li>Major breakpoints should be set as variables and referenced through <a href="http://breakpoint-sass.com/">Breakpoint</a>.</li>
+			<li>Initially, major breakpoints should be set for ‘small’, ‘medium’ and ‘large’ viewports (do not use terms such as mobile, tablet, desktop as there is too much fragmentation and overlap).</li>
+			<li>Minor breakpoints should be targeted around each element where there is a break in the flow and layout. For example where the navigation breaks before the next major breakpoint. This is to ensure our code is more concise and we are only introducing breakpoints where and when they are necessary.</li>
+			<li>Place media queries as close to their relevant rule sets whenever possible. Don't bundle them all in a separate stylesheet or at the end of the document. Doing so only makes it easier for folks to miss them in the future.</li>
+		</ul>
+	</div>
+	<div class="l-col">
+		<div class="highlight"><pre><code class="language-scss" data-lang="scss"><span class="k">@import</span> <span class="s2">&quot;breakpoint&quot;</span><span class="p">;</span>
+
+<span class="nv">$breakpoint-large</span><span class="o">:</span>            <span class="mi">1000</span><span class="kt">px</span><span class="p">;</span>
+<span class="nv">$breakpoint-medium</span><span class="o">:</span>           <span class="mi">600</span><span class="kt">px</span><span class="p">;</span>
+<span class="nv">$breakpoint-small</span><span class="o">:</span>            <span class="mi">400</span><span class="kt">px</span><span class="p">;</span>
+
+<span class="nt">nav</span><span class="o">[</span><span class="nt">role</span><span class="o">=</span><span class="nt">navigation</span><span class="o">]</span> <span class="nt">ul</span> <span class="nt">li</span> <span class="p">{</span>
+	<span class="k">@include</span><span class="nd"> breakpoint</span><span class="p">(</span><span class="nv">$breakpoint-small</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nc">...</span>
+	<span class="p">}</span>
+<span class="p">}</span></code></pre></div>
+	</div>
+</div>
+<div class="l-container columns" id="icons">
+	<div class="l-col">
+		<h2>Icons</h2>
+		<ul>
+			<li>Most interfaces require icons to be implemented. To ensure crisp edges on retina screens, flexibility and re-use, icons should be implemented via an icon font.</li>
+			<li>If custom icons, SVG's should be created and stored within the UI/Images folder, <a href="https://icomoon.io/app/">icoMoon app</a> should then be used to create an icon font.</li>
+		</ul>
+	</div>
+</div>
+</main>
+    <footer role="contentinfo">
+	<div class="container">
+		<p>&copy; Creative Jar 2015</p>
+	</div>
+</footer>    
+    <script data-main="/UI/JavaScript/Global" src="/UI/JavaScript/Vendor/require.min.js"></script>
+  </body>
+</html>

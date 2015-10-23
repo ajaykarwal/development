@@ -1,0 +1,14 @@
+// ----------------------------------------
+// Tables
+// ----------------------------------------
+
+table {
+	border:									1px solid palette(neutral-grey);
+	width:									100%;
+}
+
+td, th {
+	border:									1px solid palette(neutral-grey);
+	text-align: 							left;
+	padding:								$spacing-unit-small;
+}

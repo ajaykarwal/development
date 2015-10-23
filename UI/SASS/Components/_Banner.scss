@@ -1,0 +1,29 @@
+/*doc
+---
+title: Banner
+name: banner
+category: page
+---
+```html_example
+    <header class="banner">
+    	<div class="l-container">
+    		<h1><span>Title text with</span> emphasis</h1>
+    	</div>
+    </header>
+```
+*/
+
+.banner {
+	background:								url('../Images/HeaderBg.jpg') fixed;
+	background-size:						cover;
+	color:									palette(neutral);
+	@include								flexbox;
+	height: 								400px;
+	.l-container {
+		@include							flexbox;		
+		@include							align-items(center);
+	}
+    @include breakpoint($breakpoint-small) {
+        height:                             300px;
+    }
+}

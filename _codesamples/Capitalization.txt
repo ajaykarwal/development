@@ -1,0 +1,41 @@
+﻿// Capitalization conventions
+HtmlTag
+ResolveUrl
+IOStream
+
+htmlTag
+resolveUrl
+ioStream
+
+// UpperCamelCase
+namespace CreativeJar.Standards
+
+public class Class
+
+public string Field;
+
+public string Property { get; set; }
+
+public void Method()
+
+public enum Enum
+{
+    ItemOne,
+    ItemTwo,
+    ItemThree
+}
+
+// lowerCamelCase
+public void Method(int parameter)
+{
+    var localVariable = parameter + 1;
+}
+
+// _lowerCamelCase
+private string _field;
+
+// IUpperCamelCase
+public interface INaming
+
+// TUpperCamelCase
+public class Class<TName> where TName : class

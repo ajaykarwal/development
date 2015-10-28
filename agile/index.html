@@ -1,0 +1,47 @@
+---
+layout: page
+title: Agile
+pre-heading: Coding for
+heading: Agile
+menu-label: Agile
+permalink: /agile/
+weight: 1
+---
+
+<div class="l-container columns">
+    <div class="l-col">
+        <p>Code conventions serve the following purpose:</p>
+        <ul>
+            <li>A consistent look to the code</li>
+            <li>Code that is easier to read and follow</li>
+            <li>Facilitates the maintenance of code</li>
+        </ul>
+    </div>
+</div>
+<div class="l-container columns" id="naming">
+    <div class="l-col">
+        <h2>Naming</h2>
+        <ul>
+            <li>Choose easily readable names, use good English</li>
+            <li>Favour readability over brevity</li>
+            <li>Do not use underscores, hyphens, or other non alphanumeric characters</li>
+            <li>Do not use Hungarian notation</li>
+            <li>Avoid using identifiers that conflict with language keywords</li>
+            <li>Avoid using abbreviations or contractions</li>
+            <li>Avoid using acronyms that are not widely understood and accepted</li>
+        </ul>
+    </div>
+    <div class="l-col">
+        {% highlight c# %}
+        // Good
+        HorizontalAlignment
+        CanScrollHorizontally
+        Surname
+
+        // Bad
+        AlignmentHorizontal
+        ScrollableX
+        StrSurname
+        {% endhighlight %}
+    </div>
+</div>
